@@ -23,7 +23,7 @@ No deployment secrets are needed. Only site files and assets enter the Pages art
 
 The application release process uploads verified packages to a draft here and
 publishes only after all downloads have been checked. Each release contains the
-Windows desktop installer and executable, three standalone servers, the Debian
+Windows desktop installer, three standalone servers, the Debian
 deployment package, and `SHA256SUMS.txt`. Signing inputs are never published here.
 
 The Debian package pulls `ghcr.io/impleotv/license-center:vX.Y.Z` anonymously.

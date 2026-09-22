@@ -504,7 +504,7 @@ code {
 /* License Center additions to the shared Impleo release-site layout. */
 .hero { min-height: 460px; padding-block: 60px; }
 .hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); letter-spacing: -0.055em; }
-.desktop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.desktop-grid { grid-template-columns: minmax(0, 1fr); }
 .server-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .group-title { font-size: 1.35rem; margin: 36px 0 14px; }
 .group-description, .fallback { color: var(--muted); }

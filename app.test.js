@@ -16,9 +16,10 @@ const documentFor = () => new JSDOM(html, {url: 'https://impleotv.github.io/lice
 test('stable releases use publication date and exclude drafts and prereleases', () => {
   assert.deepEqual(stableReleases([fixture('2.0.0', '2026-08-01'), fixture(), {...fixture('3.0.0'), draft: true}, {...fixture('4.0.0'), prerelease: true}]).map(r => r.tag_name), ['v1.2.0', 'v2.0.0']);
 });
-test('all six package names match exactly and internal assets are not matched', () => {
+test('all five package names match exactly and internal assets are not matched', () => {
   const release = fixture();
-  assert.equal(packages.length, 6);
+  assert.equal(packages.length, 5);
+  assert.ok(!packages.some(pkg => pkg.name === 'license-center.exe'));
   for (const pkg of packages) assert.ok(assetFor(release, pkg.name));
   release.assets = [{name: 'license-center-windows-signing.zip'}, {name: 'other-license-center.exe'}];
   for (const pkg of packages) assert.equal(assetFor(release, pkg.name), undefined);
@@ -43,7 +44,7 @@ test('latest renders all downloads, checksums and versioned installation instruc
   const doc = documentFor();
   await init(doc, async () => response([fixture()]));
   assert.equal(doc.querySelector('[data-latest-version]').textContent, 'v1.2.0');
-  assert.equal(doc.querySelectorAll('.download-button').length, 6);
+  assert.equal(doc.querySelectorAll('.download-button').length, 5);
   assert.match(doc.querySelector('[data-checksums] a').href, /SHA256SUMS.txt$/);
   assert.match(doc.querySelector('[data-deb-command]').textContent, /license-center_1.2.0_all.deb/);
   assert.match(doc.querySelector('[data-version-rows]').textContent, /No older/);

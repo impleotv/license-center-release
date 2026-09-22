@@ -3,7 +3,6 @@ export const RELEASES_URL = `https://github.com/${REPO}/releases`;
 export const PAGE_SIZE = 10;
 export const packages = [
   {name: 'license-center-amd64-installer.exe', label: 'Windows installer', group: 'desktop', description: 'Recommended. Signed setup for Windows x64, including WebView2 setup.'},
-  {name: 'license-center.exe', label: 'Windows executable', group: 'desktop', description: 'Signed standalone desktop app for Windows x64. Requires WebView2 Runtime.'},
   {name: version => `license-center_${version}_all.deb`, label: 'Debian / Ubuntu', group: 'server', description: 'Managed Docker deployment for Linux AMD64 and ARM64. Requires Docker and Compose v2.'},
   {name: 'license-center-server-linux-amd64', label: 'Linux AMD64', group: 'server', description: 'Standalone server for Intel and AMD 64-bit systems.'},
   {name: 'license-center-server-linux-arm64', label: 'Linux ARM64', group: 'server', description: 'Standalone server for 64-bit ARM systems.'},
