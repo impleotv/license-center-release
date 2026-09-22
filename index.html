@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Download Impleo License Center for Windows or deploy your own license operations server. Latest releases, checksums, and installation instructions.">
+  <title>License Center Downloads · ImpleoTV</title>
+  <link rel="icon" href="assets/license-center.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#downloads">Skip to downloads</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="License Center downloads home"><img class="brand-logo" src="assets/impleo-logo.png" alt="ImpleoTV" width="116" height="32"></a>
+    <nav class="top-nav" aria-label="Primary navigation"><a href="#downloads">Downloads</a><a href="#install">Install</a><a href="#versions">Versions</a><a href="https://github.com/impleotv/license-center-release/releases">GitHub</a></nav>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Release downloads</p>
+        <h1 id="hero-title">License Center</h1>
+        <p class="hero-text">Your license operations, in one place. Manage customers, orders, entitlements, and issued licenses from your desktop or your own server.</p>
+        <div class="hero-actions"><a class="button primary" href="#downloads">Download latest</a><a class="button secondary" href="#install">Installation guide</a></div>
+      </div>
+      <aside class="release-panel" aria-label="Latest release summary">
+        <div class="release-panel-top"><img src="assets/license-center.png" alt="" width="56" height="56"><div><p class="panel-label">Latest stable</p><p class="latest-version" data-latest-version>Loading…</p></div></div>
+        <dl class="release-meta"><div><dt>Published</dt><dd data-latest-date>Checking releases</dd></div><div><dt>Available for</dt><dd>Windows · Linux servers</dd></div></dl>
+        <a class="text-link" data-latest-notes href="https://github.com/impleotv/license-center-release/releases">View release notes</a>
+        <span data-checksums></span>
+      </aside>
+    </section>
+    <section id="downloads" class="section" aria-labelledby="downloads-title">
+      <div class="section-heading"><p class="eyebrow">Get License Center</p><h2 id="downloads-title">Choose your installation</h2><p>Use the Windows desktop app, or host the web console for your team. Each tenant requires a valid License Center activation.</p></div>
+      <p data-status-message role="status">Loading current release…</p>
+      <h3 class="group-title">Windows desktop</h3>
+      <div class="download-grid desktop-grid" data-desktop-grid></div>
+      <h3 class="group-title">Self-hosted server</h3>
+      <p class="group-description">The Debian package manages a Docker deployment. Standalone binaries are for administrators configuring their own service.</p>
+      <div class="download-grid server-grid" data-server-grid></div>
+      <p class="fallback">You can always <a href="https://github.com/impleotv/license-center-release/releases">browse all releases on GitHub</a>.</p>
+      <noscript><p>Enable JavaScript to load download links, or use the GitHub releases link above.</p></noscript>
+    </section>
+    <section id="install" class="section" aria-labelledby="install-title">
+      <div class="section-heading"><p class="eyebrow">Setup</p><h2 id="install-title">From download to first license</h2></div>
+      <div class="install-grid">
+        <article class="install-card"><div class="platform-heading"><img class="platform-mark" src="assets/platform-windows.svg" alt="" width="42" height="42"><h3>Windows desktop</h3></div><ol><li>Download and run the signed Windows installer.</li><li>Launch License Center from the Start menu.</li><li>Complete initial setup and request an activation from ImpleoTV.</li></ol><p>The standalone executable requires Microsoft Edge WebView2 Runtime. The installer can install that runtime for you.</p></article>
+        <article class="install-card"><div class="platform-heading"><img class="platform-mark" src="assets/platform-linux.svg" alt="" width="42" height="42"><h3>Debian / Ubuntu</h3></div><p>Requires Docker Engine, Docker Compose v2, and systemd. Supports AMD64 and ARM64.</p><ol><li>Download the Debian deployment package.</li><li>Install and configure it:<pre><code data-deb-command>sudo apt install ./license-center_VERSION_all.deb
+sudo license-centerctl configure</code></pre></li><li>Enter your public HTTPS URL and reverse-proxy port, then open that URL to complete setup.</li></ol><p>The package pulls the public, versioned container image automatically. The default proxy port is 6000 on localhost.</p></article>
+        <article class="install-card"><h3>Standalone servers</h3><ol><li>Choose the binary matching your operating system and architecture. On Linux, make the downloaded file executable.</li><li>Set <code>LICENSE_CENTER_MASTER_KEY</code> to a securely generated 32-byte base64 key and set <code>LICENSE_CENTER_PUBLIC_URL</code> to your HTTPS address.</li><li>Start the binary with persistent storage and configure an HTTPS reverse proxy. The default listener is <code>127.0.0.1:8080</code>.</li></ol><p>Back up your data directory and master key together. Use the application’s built-in manual for configuration details.</p></article>
+      </div>
+      <details class="verification"><summary>Verify your download</summary><p>Download <code>SHA256SUMS.txt</code> from the same release and compare the hash for your file.</p><p>Windows PowerShell:</p><pre><code>Get-FileHash .\license-center-amd64-installer.exe -Algorithm SHA256</code></pre><p>Linux, from the directory containing your downloads:</p><pre><code>sha256sum --check --ignore-missing SHA256SUMS.txt</code></pre></details>
+    </section>
+    <section id="versions" class="section" aria-labelledby="versions-title">
+      <div class="section-heading"><p class="eyebrow">Archive</p><h2 id="versions-title">Older versions</h2><p>Previous stable releases, with their original packages and checksums.</p></div>
+      <div class="versions-table-wrap"><table class="versions-table"><thead><tr><th scope="col">Version</th><th scope="col">Published</th><th scope="col">Downloads</th><th scope="col">Details</th></tr></thead><tbody data-version-rows><tr><td colspan="4">Loading release history…</td></tr></tbody></table></div>
+      <div class="pagination"><button type="button" data-previous disabled>Previous</button><span data-page-status aria-live="polite"></span><button type="button" data-next disabled>Next</button></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>License Center by ImpleoTV</span><a href="https://github.com/impleotv/license-center-release/releases">GitHub releases</a><a href="https://impleotv.com">ImpleoTV</a></footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

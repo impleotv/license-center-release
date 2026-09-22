@@ -1,0 +1,7 @@
+{
+  "name": "license-center-downloads",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node --test app.test.js"},
+  "devDependencies": {"jsdom": "^29.0.0"}
+}
