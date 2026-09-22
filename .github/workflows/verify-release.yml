@@ -26,8 +26,11 @@ jobs:
           echo "DOCKER_CONFIG=$RUNNER_TEMP/anonymous-docker" >> "$GITHUB_ENV"
       - name: Pull both architectures without registry credentials
         run: |
-          docker pull --platform linux/amd64 "ghcr.io/impleotv/license-center:$RELEASE_TAG"
           docker pull --platform linux/arm64 "ghcr.io/impleotv/license-center:$RELEASE_TAG"
+          # Classic Docker stores keep one local platform per tag. Restore the
+          # runner's native image after checking the foreign architecture.
+          docker pull --platform linux/amd64 "ghcr.io/impleotv/license-center:$RELEASE_TAG"
+          test "$(docker image inspect --format '{{.Architecture}}' "ghcr.io/impleotv/license-center:$RELEASE_TAG")" = amd64
       - name: Download public package and verify checksum
         run: |
           base="https://github.com/impleotv/license-center-release/releases/download/$RELEASE_TAG"
